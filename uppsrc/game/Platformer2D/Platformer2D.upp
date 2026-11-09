@@ -1,0 +1,23 @@
+description "Platformer2D - Commander Keen 4/5/6 reimplementation (OmniSpeak port)";
+
+uses
+	Core,
+	Draw,
+	CtrlLib,
+	CtrlCore,
+	Geometry,
+	Sound,
+	game/Platformer2D/Core,
+	game/Platformer2D/Resource,
+	game/Platformer2D/Render,
+	game/Platformer2D/Audio,
+	game/Platformer2D/Platform;
+
+file
+	AGENTS.md,
+	Platformer2D.h,
+	Platformer2D.cpp,
+	main.cpp;
+
+mainconfig
+	"" = "GUI";

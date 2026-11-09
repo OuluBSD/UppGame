@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE form>
+<form>
+	<layouts>
+		<item>
+			<content>
+				<item x="0" y="0" cx="1024" cy="768" align="1" valign="1">
+					<name>BoardOuter</name>
+					<properties>
+						<property name="Variable" value="BoardOuter"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="StaticRect"/>
+						<property name="StaticRect.Background" value="#4A2D16"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="10" y="10" cx="1004" cy="748" align="1" valign="1">
+					<name>BoardFelt</name>
+					<properties>
+						<property name="Variable" value="BoardFelt"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="StaticRect"/>
+						<property name="StaticRect.Background" value="#16773A"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="20" y="20" cx="300" cy="28" align="1" valign="1">
+					<name>TitleLabel</name>
+					<properties>
+						<property name="Variable" value="TitleLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="20"/>
+						<property name="Font.Color" value="255"/>
+						<property name="Label" value="HEARTS ROYAL"/>
+						<property name="Text.Align" value="Left"/>
+					</properties>
+				</item>
+				<item x="20" y="48" cx="380" cy="24" align="1" valign="1">
+					<name>PhaseLabel</name>
+					<properties>
+						<property name="Variable" value="PhaseLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="14"/>
+						<property name="Font.Color" value="255"/>
+						<property name="Label" value="Phase: Not started"/>
+						<property name="Text.Align" value="Left"/>
+					</properties>
+				</item>
+				<item x="20" y="708" cx="460" cy="24" align="1" valign="2">
+					<name>StartHintLabel</name>
+					<properties>
+						<property name="Variable" value="StartHintLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="14"/>
+						<property name="Font.Color" value="230"/>
+						<property name="Label" value="Click New Game to start playing."/>
+						<property name="Text.Align" value="Left"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="20" y="80" cx="420" cy="24" align="1" valign="1">
+					<name>ScoreLabel0</name>
+					<properties>
+						<property name="Variable" value="ScoreLabel0"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="14"/>
+						<property name="Font.Color" value="255"/>
+						<property name="Label" value="You (P0) | 0 pts"/>
+						<property name="Text.Align" value="Left"/>
+					</properties>
+				</item>
+				<item x="20" y="104" cx="420" cy="24" align="1" valign="1">
+					<name>ScoreLabel1</name>
+					<properties>
+						<property name="Variable" value="ScoreLabel1"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="14"/>
+						<property name="Font.Color" value="255"/>
+						<property name="Label" value="AI (P1) | 0 pts"/>
+						<property name="Text.Align" value="Left"/>
+					</properties>
+				</item>
+				<item x="20" y="128" cx="420" cy="24" align="1" valign="1">
+					<name>ScoreLabel2</name>
+					<properties>
+						<property name="Variable" value="ScoreLabel2"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="14"/>
+						<property name="Font.Color" value="255"/>
+						<property name="Label" value="AI (P2) | 0 pts"/>
+						<property name="Text.Align" value="Left"/>
+					</properties>
+				</item>
+				<item x="20" y="152" cx="420" cy="24" align="1" valign="1">
+					<name>ScoreLabel3</name>
+					<properties>
+						<property name="Variable" value="ScoreLabel3"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="14"/>
+						<property name="Font.Color" value="255"/>
+						<property name="Label" value="AI (P3) | 0 pts"/>
+						<property name="Text.Align" value="Left"/>
+					</properties>
+				</item>
+				<item x="460" y="220" cx="72" cy="96" align="1" valign="1">
+					<name>TrickCard2</name>
+					<properties>
+						<property name="Variable" value="TrickCard2"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+					</properties>
+				</item>
+				<item x="556" y="316" cx="72" cy="96" align="1" valign="1">
+					<name>TrickCard1</name>
+					<properties>
+						<property name="Variable" value="TrickCard1"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+					</properties>
+				</item>
+				<item x="460" y="412" cx="72" cy="96" align="1" valign="1">
+					<name>TrickCard0</name>
+					<properties>
+						<property name="Variable" value="TrickCard0"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+					</properties>
+				</item>
+				<item x="364" y="316" cx="72" cy="96" align="1" valign="1">
+					<name>TrickCard3</name>
+					<properties>
+						<property name="Variable" value="TrickCard3"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+					</properties>
+				</item>
+				<item x="116" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard0</name>
+					<properties>
+						<property name="Variable" value="HumanCard0"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="176" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard1</name>
+					<properties>
+						<property name="Variable" value="HumanCard1"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="236" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard2</name>
+					<properties>
+						<property name="Variable" value="HumanCard2"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="296" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard3</name>
+					<properties>
+						<property name="Variable" value="HumanCard3"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="356" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard4</name>
+					<properties>
+						<property name="Variable" value="HumanCard4"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="416" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard5</name>
+					<properties>
+						<property name="Variable" value="HumanCard5"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="476" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard6</name>
+					<properties>
+						<property name="Variable" value="HumanCard6"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="536" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard7</name>
+					<properties>
+						<property name="Variable" value="HumanCard7"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="596" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard8</name>
+					<properties>
+						<property name="Variable" value="HumanCard8"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="656" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard9</name>
+					<properties>
+						<property name="Variable" value="HumanCard9"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="716" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard10</name>
+					<properties>
+						<property name="Variable" value="HumanCard10"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="776" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard11</name>
+					<properties>
+						<property name="Variable" value="HumanCard11"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_CENTER"/>
+					</properties>
+				</item>
+				<item x="836" y="632" cx="72" cy="96" align="1" valign="2">
+					<name>HumanCard12</name>
+					<properties>
+						<property name="Variable" value="HumanCard12"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="BOTTOM_LEFT"/>
+					</properties>
+				</item>
+								<item x="116" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard0</name>
+					<properties>
+						<property name="Variable" value="NorthCard0"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="176" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard1</name>
+					<properties>
+						<property name="Variable" value="NorthCard1"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="236" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard2</name>
+					<properties>
+						<property name="Variable" value="NorthCard2"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="296" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard3</name>
+					<properties>
+						<property name="Variable" value="NorthCard3"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="356" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard4</name>
+					<properties>
+						<property name="Variable" value="NorthCard4"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="416" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard5</name>
+					<properties>
+						<property name="Variable" value="NorthCard5"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="476" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard6</name>
+					<properties>
+						<property name="Variable" value="NorthCard6"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="536" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard7</name>
+					<properties>
+						<property name="Variable" value="NorthCard7"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="596" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard8</name>
+					<properties>
+						<property name="Variable" value="NorthCard8"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="656" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard9</name>
+					<properties>
+						<property name="Variable" value="NorthCard9"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="716" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard10</name>
+					<properties>
+						<property name="Variable" value="NorthCard10"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="776" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard11</name>
+					<properties>
+						<property name="Variable" value="NorthCard11"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="836" y="160" cx="72" cy="96" align="1" valign="2">
+					<name>NorthCard12</name>
+					<properties>
+						<property name="Variable" value="NorthCard12"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="TOP_CENTER"/>
+					</properties>
+				</item>
+				<item x="20" y="180" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard0</name>
+					<properties>
+						<property name="Variable" value="WestCard0"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="212" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard1</name>
+					<properties>
+						<property name="Variable" value="WestCard1"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="244" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard2</name>
+					<properties>
+						<property name="Variable" value="WestCard2"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="276" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard3</name>
+					<properties>
+						<property name="Variable" value="WestCard3"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="308" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard4</name>
+					<properties>
+						<property name="Variable" value="WestCard4"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="340" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard5</name>
+					<properties>
+						<property name="Variable" value="WestCard5"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="372" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard6</name>
+					<properties>
+						<property name="Variable" value="WestCard6"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="404" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard7</name>
+					<properties>
+						<property name="Variable" value="WestCard7"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="436" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard8</name>
+					<properties>
+						<property name="Variable" value="WestCard8"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="468" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard9</name>
+					<properties>
+						<property name="Variable" value="WestCard9"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="500" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard10</name>
+					<properties>
+						<property name="Variable" value="WestCard10"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="532" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard11</name>
+					<properties>
+						<property name="Variable" value="WestCard11"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="564" cx="72" cy="96" align="1" valign="2">
+					<name>WestCard12</name>
+					<properties>
+						<property name="Variable" value="WestCard12"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_LEFT"/>
+					</properties>
+				</item>
+				<item x="932" y="180" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard0</name>
+					<properties>
+						<property name="Variable" value="EastCard0"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="212" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard1</name>
+					<properties>
+						<property name="Variable" value="EastCard1"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="244" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard2</name>
+					<properties>
+						<property name="Variable" value="EastCard2"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="276" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard3</name>
+					<properties>
+						<property name="Variable" value="EastCard3"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="308" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard4</name>
+					<properties>
+						<property name="Variable" value="EastCard4"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="340" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard5</name>
+					<properties>
+						<property name="Variable" value="EastCard5"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="372" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard6</name>
+					<properties>
+						<property name="Variable" value="EastCard6"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="404" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard7</name>
+					<properties>
+						<property name="Variable" value="EastCard7"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="436" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard8</name>
+					<properties>
+						<property name="Variable" value="EastCard8"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="468" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard9</name>
+					<properties>
+						<property name="Variable" value="EastCard9"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="500" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard10</name>
+					<properties>
+						<property name="Variable" value="EastCard10"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="532" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard11</name>
+					<properties>
+						<property name="Variable" value="EastCard11"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+				<item x="932" y="564" cx="72" cy="96" align="1" valign="2">
+					<name>EastCard12</name>
+					<properties>
+						<property name="Variable" value="EastCard12"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="180"/>
+						<property name="Anchor" value="CENTER_RIGHT"/>
+					</properties>
+				</item>
+
+				<item x="28" y="620" cx="140" cy="30" align="2" valign="2">
+					<name>PassButton</name>
+					<properties>
+						<property name="Variable" value="PassButton"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="Pass Cards"/>
+						<property name="Action" value="PassCards"/>
+						<property name="Anchor" value="BOTTOM_RIGHT"/>
+					</properties>
+				</item>
+				<item x="28" y="660" cx="96" cy="30" align="2" valign="2">
+					<name>ClearButton</name>
+					<properties>
+						<property name="Variable" value="ClearButton"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="Clear"/>
+						<property name="Action" value="ClearSelection"/>
+						<property name="Anchor" value="BOTTOM_RIGHT"/>
+					</properties>
+				</item>
+				<item x="28" y="700" cx="196" cy="30" align="2" valign="2">
+					<name>NewGameButton</name>
+					<properties>
+						<property name="Variable" value="NewGameButton"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="New Game"/>
+						<property name="Action" value="NewGame"/>
+						<property name="Anchor" value="BOTTOM_RIGHT"/>
+					</properties>
+				</item>
+				<item x="430" y="340" cx="220" cy="40" align="1" valign="1">
+					<name>GameOverLabel</name>
+					<properties>
+						<property name="Variable" value="GameOverLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="28"/>
+						<property name="Font.Color" value="255"/>
+						<property name="Label" value=""/>
+						<property name="Text.Align" value="Center"/>
+					</properties>
+				</item>
+			</content>
+			<name>Default</name>
+			<properties>
+				<property name="Form.Width" value="1024"/>
+				<property name="Form.Height" value="768"/>
+				<property name="Form.MaximizeBox" value="true"/>
+				<property name="Form.MinimizeBox" value="true"/>
+				<property name="Form.Sizeable" value="true"/>
+				<property name="Form.ToolWindow" value="false"/>
+				<property name="Form.Name" value="Default"/>
+				<property name="Form.Title" value="Hearts Royal"/>
+			</properties>
+		</item>
+	</layouts>
+</form>

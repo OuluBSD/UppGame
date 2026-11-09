@@ -1,0 +1,13 @@
+description "Platformer2DVarParser - Episode variable parser and code generator";
+
+uses
+	Platformer2D,
+	game/Platformer2D/Resource;
+
+file
+	AGENTS.md,
+	Platformer2DVarParser.h,
+	Platformer2DVarParser.cpp;
+
+mainconfig
+	"" = "GUI";

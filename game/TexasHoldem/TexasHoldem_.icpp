@@ -1,0 +1,9 @@
+#include <Core/Core.h>
+#include <GameRules/BoardInterface.h>
+
+NAMESPACE_UPP
+
+// No TFILE here, it's in the .icpp
+// We just need to make sure translations are included correctly in the project.
+
+END_UPP_NAMESPACE

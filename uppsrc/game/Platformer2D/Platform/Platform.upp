@@ -1,0 +1,22 @@
+description "Platformer2D/Platform - U++ window, input, timer, audio adapters";
+
+uses
+	game/Platformer2D/Core,
+	game/Platformer2D/Resource,
+	game/Platformer2D/Render,
+	game/Platformer2D/Audio,
+	CtrlLib,
+	Sound;
+
+file
+	AGENTS.md,
+	Platform.h,
+	Platform.cpp,
+	Timer.h,
+	Timer.cpp,
+	Window.h,
+	Window.cpp,
+	Input.h,
+	Input.cpp,
+	AudioOut.h,
+	AudioOut.cpp;

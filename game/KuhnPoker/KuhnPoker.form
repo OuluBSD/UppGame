@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE form>
+<form>
+	<layouts>
+		<item>
+			<content>
+				<item x="20" y="20" cx="500" cy="280" align="1" valign="1">
+					<name>BoardForm</name>
+					<properties>
+						<property name="Variable" value="BoardForm"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Form"/>
+						<property name="Form.PathType" value="Relative"/>
+						<property name="Form.Path" value="KuhnPoker.form"/>
+						<property name="Form.Layout" value="Board"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="560" y="30" cx="230" cy="36" align="2" valign="1">
+					<name>StatusLabel</name>
+					<properties>
+						<property name="Variable" value="StatusLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="16"/>
+						<property name="OutlineDraw" value="false"/>
+						<property name="Label" value=""/>
+						<property name="Text.Align" value="Left"/>
+						<property name="Anchor" value="TOP_RIGHT"/>
+					</properties>
+				</item>
+				<item x="560" y="80" cx="230" cy="140" align="2" valign="1">
+					<name>LogLabel</name>
+					<properties>
+						<property name="Variable" value="LogLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="13"/>
+						<property name="OutlineDraw" value="false"/>
+						<property name="Label" value=""/>
+						<property name="Text.Align" value="Left"/>
+						<property name="Anchor" value="TOP_RIGHT"/>
+					</properties>
+				</item>
+				<item x="680" y="240" cx="110" cy="34" align="2" valign="1">
+					<name>NewHandButton</name>
+					<properties>
+						<property name="Variable" value="NewHandButton"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Font.Height" value="15"/>
+						<property name="Label" value="New Hand"/>
+						<property name="Action" value="NewHand"/>
+						<property name="Anchor" value="TOP_RIGHT"/>
+					</properties>
+				</item>
+				<item x="560" y="240" cx="110" cy="34" align="2" valign="1">
+					<name>CheckButton</name>
+					<properties>
+						<property name="Variable" value="CheckButton"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Font.Height" value="15"/>
+						<property name="Label" value="Check"/>
+						<property name="Action" value="Check"/>
+						<property name="Anchor" value="TOP_RIGHT"/>
+					</properties>
+				</item>
+				<item x="680" y="280" cx="110" cy="34" align="2" valign="1">
+					<name>BetButton</name>
+					<properties>
+						<property name="Variable" value="BetButton"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Font.Height" value="15"/>
+						<property name="Label" value="Bet"/>
+						<property name="Action" value="Bet"/>
+						<property name="Anchor" value="TOP_RIGHT"/>
+					</properties>
+				</item>
+				<item x="560" y="280" cx="110" cy="34" align="2" valign="1">
+					<name>CallButton</name>
+					<properties>
+						<property name="Variable" value="CallButton"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Font.Height" value="15"/>
+						<property name="Label" value="Call"/>
+						<property name="Action" value="Call"/>
+						<property name="Anchor" value="TOP_RIGHT"/>
+					</properties>
+				</item>
+				<item x="560" y="320" cx="230" cy="34" align="2" valign="1">
+					<name>FoldButton</name>
+					<properties>
+						<property name="Variable" value="FoldButton"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Font.Height" value="15"/>
+						<property name="Label" value="Fold"/>
+						<property name="Action" value="Fold"/>
+						<property name="Anchor" value="TOP_RIGHT"/>
+					</properties>
+				</item>
+			</content>
+			<name></name>
+			<properties>
+				<property name="Form.Width" value="800"/>
+				<property name="Form.Height" value="380"/>
+				<property name="Form.MaximizeBox" value="true"/>
+				<property name="Form.MinimizeBox" value="true"/>
+				<property name="Form.Sizeable" value="true"/>
+				<property name="Form.ToolWindow" value="false"/>
+				<property name="Form.Name" value="Default"/>
+				<property name="Form.Title" value="Kuhn Poker - Form Table"/>
+			</properties>
+		</item>
+		<item>
+			<content>
+				<item x="0" y="0" cx="500" cy="280" align="1" valign="1">
+					<name>BoardOuter</name>
+					<properties>
+						<property name="Variable" value="BoardOuter"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="StaticRect"/>
+						<property name="StaticRect.Background" value="#5C4020"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="8" y="8" cx="484" cy="264" align="1" valign="1">
+					<name>BoardBackFelt</name>
+					<properties>
+						<property name="Variable" value="BoardBackFelt"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="StaticRect"/>
+						<property name="StaticRect.Background" value="#1A6A37"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="18" y="18" cx="464" cy="244" align="1" valign="1">
+					<name>BoardFelt</name>
+					<properties>
+						<property name="Variable" value="BoardFelt"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="StaticRect"/>
+						<property name="StaticRect.Background" value="#168638"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="20" y="12" cx="240" cy="24" align="1" valign="1">
+					<name>BoardTitleLabel</name>
+					<properties>
+						<property name="Variable" value="BoardTitleLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="20"/>
+						<property name="Label" value="KUHN POKER"/>
+						<property name="Text.Align" value="Left"/>
+						<property name="Anchor" value="TOP_LEFT"/>
+					</properties>
+				</item>
+				<item x="20" y="40" cx="220" cy="22" align="1" valign="1">
+					<name>BoardPhaseLabel</name>
+					<properties>
+						<property name="Variable" value="BoardPhaseLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="14"/>
+						<property name="Label" value="Phase: Not started"/>
+						<property name="Text.Align" value="Left"/>
+						<property name="Anchor" value="TOP_LEFT"/>
+					</properties>
+				</item>
+				<item x="40" y="72" cx="96" cy="136" align="1" valign="1">
+					<name>AICard</name>
+					<properties>
+						<property name="Variable" value="AICard"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="350"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="352" y="72" cx="96" cy="136" align="1" valign="1">
+					<name>HumanCard</name>
+					<properties>
+						<property name="Variable" value="HumanCard"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="ImageCtrl"/>
+						<property name="Transition.Mode" value="Flip horizontal"/>
+						<property name="Transition.Easing" value="Ease out cubic"/>
+						<property name="Transition.Duration" value="350"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="204" y="92" cx="92" cy="56" align="1" valign="1">
+					<name>BoardPotFrame</name>
+					<properties>
+						<property name="Variable" value="BoardPotFrame"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="StaticRect"/>
+						<property name="StaticRect.Background" value="#5A3018"/>
+						<property name="Anchor" value="CENTER"/>
+					</properties>
+				</item>
+				<item x="216" y="98" cx="68" cy="20" align="1" valign="1">
+					<name>BoardPotLabel</name>
+					<properties>
+						<property name="Variable" value="BoardPotLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="12"/>
+						<property name="Label" value="Pot"/>
+						<property name="Text.Align" value="Left"/>
+						<property name="Anchor" value="CENTER"/>
+					</properties>
+				</item>
+				<item x="216" y="118" cx="68" cy="24" align="1" valign="1">
+					<name>BoardPotValue</name>
+					<properties>
+						<property name="Variable" value="BoardPotValue"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="18"/>
+						<property name="Label" value="0"/>
+						<property name="Text.Align" value="Left"/>
+						<property name="Anchor" value="CENTER"/>
+					</properties>
+				</item>
+				<item x="20" y="228" cx="260" cy="20" align="1" valign="1">
+					<name>BoardChipsLabel</name>
+					<properties>
+						<property name="Variable" value="BoardChipsLabel"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="13"/>
+						<property name="Label" value="Human chips: 20    AI chips: 20"/>
+						<property name="Text.Align" value="Left"/>
+						<property name="Anchor" value="BOTTOM_LEFT"/>
+					</properties>
+				</item>
+			</content>
+			<name>Board</name>
+			<properties>
+				<property name="Form.Width" value="500"/>
+				<property name="Form.Height" value="280"/>
+				<property name="Form.Name" value="Board"/>
+			</properties>
+		</item>
+	</layouts>
+</form>

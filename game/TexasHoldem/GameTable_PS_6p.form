@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='utf-8'?>
+<form>
+	<layouts>
+		<item>
+			<content>
+				<item x="0" y="0" cx="1024" cy="648" align="1" valign="1">
+					<name>Board</name>
+					<properties>
+						<property name="Variable" value="board" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="BoardCtrl" />
+						<property name="Anchor" value="SIZE" />
+					</properties>
+				</item>
+				<item x="385" y="356" cx="255" cy="161" align="1" valign="1">
+					<name>Player0</name>
+					<properties>
+						<property name="Variable" value="player0" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="35" y="250" cx="255" cy="162" align="1" valign="1">
+					<name>Player1</name>
+					<properties>
+						<property name="Variable" value="player1" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="75" y="35" cx="255" cy="162" align="1" valign="1">
+					<name>Player2</name>
+					<properties>
+						<property name="Variable" value="player2" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="385" y="10" cx="255" cy="162" align="1" valign="1">
+					<name>Player3</name>
+					<properties>
+						<property name="Variable" value="player3" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="694" y="35" cx="255" cy="162" align="1" valign="1">
+					<name>Player4</name>
+					<properties>
+						<property name="Variable" value="player4" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="734" y="250" cx="255" cy="162" align="1" valign="1">
+					<name>Player5</name>
+					<properties>
+						<property name="Variable" value="player5" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="1" y="1" cx="1" cy="1" align="1" valign="1">
+					<name>Player6</name>
+					<properties>
+						<property name="Variable" value="player6" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="2" y="1" cx="1" cy="1" align="1" valign="1">
+					<name>Player7</name>
+					<properties>
+						<property name="Variable" value="player7" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="3" y="1" cx="1" cy="1" align="1" valign="1">
+					<name>Player8</name>
+					<properties>
+						<property name="Variable" value="player8" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="4" y="1" cx="1" cy="1" align="1" valign="1">
+					<name>Player9</name>
+					<properties>
+						<property name="Variable" value="player9" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PlayerCtrl" />
+					</properties>
+				</item>
+				<item x="465" y="174" cx="98" cy="14" align="1" valign="1">
+					<name>PotTitle</name>
+					<properties>
+						<property name="Variable" value="lblPotTitle" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="Label" />
+						<property name="Font.Height" value="18" />
+						<property name="Label" value="Pot" />
+						<property name="Text.Align" value="Right" />
+					</properties>
+				</item>
+				<item x="430" y="190" cx="168" cy="13" align="1" valign="1">
+					<name>PotTotal</name>
+					<properties>
+						<property name="Variable" value="lblPotTotal" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="Label" />
+						<property name="Font.Height" value="12" />
+						<property name="Label" value="" />
+						<property name="Text.Align" value="Right" />
+					</properties>
+				</item>
+				<item x="330" y="318" cx="130" cy="19" align="1" valign="1">
+					<name>PotBets</name>
+					<properties>
+						<property name="Variable" value="lblPotBets" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="Label" />
+						<property name="Font.Height" value="12" />
+						<property name="Label" value="" />
+						<property name="Text.Align" value="Right" />
+					</properties>
+				</item>
+				<item x="467" y="318" cx="94" cy="18" align="1" valign="1">
+					<name>TurnTitle</name>
+					<properties>
+						<property name="Variable" value="lblTurnTitle" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="Label" />
+						<property name="Font.Height" value="18" />
+						<property name="Label" value="Preflop" />
+						<property name="Text.Align" value="Left" />
+					</properties>
+				</item>
+				<item x="565" y="318" cx="130" cy="19" align="1" valign="1">
+					<name>GameInfo</name>
+					<properties>
+						<property name="Variable" value="lblGameInfo" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="Label" />
+						<property name="Font.Height" value="12" />
+						<property name="Label" value="" />
+						<property name="Text.Align" value="Left" />
+					</properties>
+				</item>
+				<item x="330" y="340" cx="130" cy="19" align="1" valign="1">
+					<name>HandInfo</name>
+					<properties>
+						<property name="Variable" value="lblHandInfo" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="Label" />
+						<property name="Font.Height" value="12" />
+						<property name="Label" value="" />
+						<property name="Text.Align" value="Left" />
+					</properties>
+				</item>
+				<item x="15" y="512" cx="266" cy="130" align="1" valign="1">
+					<name>TabLeft</name>
+					<properties>
+						<property name="Variable" value="tabLeft" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="TabCtrl" />
+					</properties>
+				</item>
+				<item x="742" y="541" cx="276" cy="100" align="1" valign="1">
+					<name>TabRight</name>
+					<properties>
+						<property name="Variable" value="tabRight" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="TabCtrl" />
+					</properties>
+				</item>
+				<item x="399" y="522" cx="236" cy="120" align="1" valign="1">
+					<name>HumanButtons</name>
+					<properties>
+						<property name="Variable" value="humanButtons" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="ParentCtrl" />
+					</properties>
+				</item>
+				<item x="0" y="0" cx="131" cy="17" align="1" valign="1">
+					<name>BtnAllIn</name>
+					<properties>
+						<property name="Variable" value="btnAllIn" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="ActionButton" />
+						<property name="Label" value="All-In" />
+						<property name="Parent" value="humanButtons" />
+					</properties>
+				</item>
+				<item x="131" y="0" cx="105" cy="17" align="1" valign="1">
+					<name>EditBet</name>
+					<properties>
+						<property name="Variable" value="editBet" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="EditInt" />
+						<property name="Parent" value="humanButtons" />
+					</properties>
+				</item>
+				<item x="0" y="17" cx="239" cy="12" align="1" valign="1">
+					<name>SliderBet</name>
+					<properties>
+						<property name="Variable" value="sliderBet" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="SliderCtrl" />
+						<property name="Parent" value="humanButtons" />
+					</properties>
+				</item>
+				<item x="0" y="29" cx="80" cy="14" align="1" valign="1">
+					<name>BtnPot33</name>
+					<properties>
+						<property name="Variable" value="btnPot33" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="ActionButton" />
+						<property name="Label" value="33%" />
+						<property name="Parent" value="humanButtons" />
+					</properties>
+				</item>
+				<item x="82" y="29" cx="80" cy="14" align="1" valign="1">
+					<name>BtnPot50</name>
+					<properties>
+						<property name="Variable" value="btnPot50" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="ActionButton" />
+						<property name="Label" value="50%" />
+						<property name="Parent" value="humanButtons" />
+					</properties>
+				</item>
+				<item x="162" y="29" cx="80" cy="14" align="1" valign="1">
+					<name>BtnPot100</name>
+					<properties>
+						<property name="Variable" value="btnPot100" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="ActionButton" />
+						<property name="Label" value="100%" />
+						<property name="Parent" value="humanButtons" />
+					</properties>
+				</item>
+				<item x="0" y="43" cx="239" cy="26" align="1" valign="1">
+					<name>BtnBetRaise</name>
+					<properties>
+						<property name="Variable" value="btnBetRaise" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="ActionButton" />
+						<property name="Label" value="Raise" />
+						<property name="Parent" value="humanButtons" />
+					</properties>
+				</item>
+				<item x="0" y="69" cx="239" cy="26" align="1" valign="1">
+					<name>BtnCheckCall</name>
+					<properties>
+						<property name="Variable" value="btnCheckCall" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="ActionButton" />
+						<property name="Label" value="Check" />
+						<property name="Parent" value="humanButtons" />
+					</properties>
+				</item>
+				<item x="0" y="94" cx="239" cy="26" align="1" valign="1">
+					<name>BtnFold</name>
+					<properties>
+						<property name="Variable" value="btnFold" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="ActionButton" />
+						<property name="Label" value="Fold" />
+						<property name="Parent" value="humanButtons" />
+					</properties>
+				</item>
+				<item x="753" y="522" cx="87" cy="21" align="1" valign="1">
+					<name>SpeedLabel</name>
+					<properties>
+						<property name="Variable" value="lblSpeed" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="Label" />
+						<property name="Font.Height" value="12" />
+						<property name="Label" value="Speed: 4" />
+						<property name="Text.Align" value="Left" />
+					</properties>
+				</item>
+				<item x="840" y="522" cx="102" cy="21" align="1" valign="1">
+					<name>SpeedSlider</name>
+					<properties>
+						<property name="Variable" value="sliderSpeed" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="SliderCtrl" />
+					</properties>
+				</item>
+				<item x="942" y="522" cx="77" cy="21" align="1" valign="1">
+					<name>PauseButton</name>
+					<properties>
+						<property name="Variable" value="btnPause" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="Button" />
+						<property name="Label" value="Pause" />
+					</properties>
+				</item>
+				<item x="15" y="512" cx="266" cy="130" align="1" valign="1">
+					<name>ChatCtrl</name>
+					<properties>
+						<property name="Variable" value="chatCtrl" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="PokerChatCtrl" />
+					</properties>
+				</item>
+				<item x="15" y="512" cx="266" cy="130" align="1" valign="1">
+					<name>HandsPane</name>
+					<properties>
+						<property name="Variable" value="handsImgPane" />
+						<property name="Frame" value="Default frame" />
+						<property name="Type" value="StaticRect" />
+					</properties>
+				</item>
+				<item x="0" y="0" cx="1024" cy="648" align="1" valign="1">
+					<name>HandsImage</name>
+					<properties>
+						<property name="Variable" value="handsImg" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="ImageCtrl" />
+						<property name="Parent" value="handsImgPane" />
+					</properties>
+				</item>
+				<item x="742" y="541" cx="276" cy="100" align="1" valign="1">
+					<name>Probabilities</name>
+					<properties>
+						<property name="Variable" value="probCtrl" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="ProbabilityCtrl" />
+					</properties>
+				</item>
+				<item x="742" y="541" cx="276" cy="100" align="1" valign="1">
+					<name>EngineLog</name>
+					<properties>
+						<property name="Variable" value="engineLogView" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="RichTextView" />
+					</properties>
+				</item>
+				<item x="742" y="541" cx="276" cy="100" align="1" valign="1">
+					<name>AwayLog</name>
+					<properties>
+						<property name="Variable" value="awayLog" />
+						<property name="Frame" value="Null frame" />
+						<property name="Type" value="RichTextView" />
+					</properties>
+				</item>
+			</content>
+			<name>GameTable</name>
+			<properties>
+				<property name="Form.Width" value="1024" />
+				<property name="Form.Height" value="648" />
+				<property name="Form.ScaleMode" value="Relative" />
+				<property name="Form.Name" value="GameTable" />
+			</properties>
+		</item>
+	</layouts>
+</form>

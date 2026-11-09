@@ -1,0 +1,20 @@
+description "Evaluates the value of a poker hand\3770,128,128";
+
+file
+	Copying,
+	CardEvaluator.h,
+	CardRange.h,
+	CardRange.cpp,
+	CombinedRange.cpp,
+	Constants.h,
+	EquityCalculator.cpp,
+	EquityCalculator.h,
+	Hand.h,
+	HandEvaluator.h,
+	HandEvaluator.cpp,
+	libdivide.h,
+	OffsetTable.cpp,
+	Random.h,
+	Util.h,
+	CombinedRange.h;
+

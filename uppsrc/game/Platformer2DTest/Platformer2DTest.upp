@@ -1,0 +1,17 @@
+description "Platformer2DTest - Headless unit, format, and differential regression tests";
+
+uses
+	game/Platformer2D/Core,
+	game/Platformer2D/Resource,
+	game/Platformer2D/Render,
+	game/Platformer2D/Audio,
+	game/Platformer2D/Platform;
+
+file
+	AGENTS.md,
+	Platformer2DTest.h,
+	Platformer2DTest.cpp,
+	main.cpp;
+
+mainconfig
+	"" = "GUI";

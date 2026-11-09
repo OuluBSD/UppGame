@@ -1,0 +1,43 @@
+description "Poker-specific card game logic and bots\377";
+
+uses
+	Core,
+	EditorCommon,
+	GameRules,
+	CardEvaluator;
+
+file
+	Poker.h,
+	PokerPlayerInterface.h,
+	PokerHandInterface.h,
+	CardsValue.h,
+	CardsValue.cpp,
+	PokerLocalPlayer.h,
+	PokerLocalPlayer.cpp,
+	LocalHand.h,
+	LocalHand.cpp,
+	LocalBoard.h,
+	LocalBoard.cpp,
+	LocalBero.h,
+	LocalBero.cpp,
+	LocalEngineFactory.h,
+	LocalEngineFactory.cpp,
+	PokerThBotPlayer.h,
+	PokerThBotPlayer.cpp,
+	RandomBotPlayer.h,
+	RandomBotPlayer.cpp,
+	TexasRenderer.h,
+	TexasRenderer.cpp,
+	TexasGen.h,
+	TexasGen.cpp,
+	MultiGameGen.h,
+	MultiGameGen.cpp,
+	ServerListSim.h,
+	ServerListSim.cpp,
+	TournamentManager.h,
+	TournamentManager.cpp,
+	TableLayoutProfile.h,
+	TableLayoutProfile.cpp,
+	ActionExecutor.h,
+	ActionExecutor.cpp;
+

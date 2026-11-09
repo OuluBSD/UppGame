@@ -1,0 +1,42 @@
+uses
+	EscAnim;
+
+file
+	Copying,
+	builtin_gfx.bin,
+	builtin_lbl.bin,
+	builtin_gff.bin,
+	builtin_map.bin,
+	builtin.brc,
+	AGENTS.md,
+	Adventure.h,
+	Adventure.cpp,
+	AdventureBindings.h,
+	AdventureBindings.cpp,
+	Game.py,
+	CarverTest.py,
+	Demo.py,
+	C8_Intro.py,
+	C8_Part1.py,
+	C8_Part2.py,
+	Program.h,
+	Program.cpp,
+	ProgramDraw.cpp,
+	Gfx.cpp,
+	Camera.cpp,
+	Ui.cpp,
+	Script.cpp,
+	Game.cpp,
+	Room.cpp,
+	Object.cpp,
+	Actor.cpp,
+	Physics.cpp,
+	Dialog.cpp,
+	App.cpp,
+	Builtin.cpp;
+
+mainconfig
+	"Console" = "GUI",
+	"X11" = "GUI X11",
+	"X11 (Valgrind)" = "GUI X11 USEMALLOC";
+

@@ -1,0 +1,13 @@
+description "Platformer2DDumpPrinter - Dump file parser and printer (OmniSpeak compatible)";
+
+uses
+	Platformer2D,
+	game/Platformer2D/Core;
+
+file
+	AGENTS.md,
+	Platformer2DDumpPrinter.h,
+	Platformer2DDumpPrinter.cpp;
+
+mainconfig
+	"" = "GUI";

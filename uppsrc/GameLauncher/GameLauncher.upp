@@ -1,0 +1,16 @@
+description "Standalone .gamestate launcher\377";
+
+uses
+	ScriptIDE;
+
+file
+	AGENTS.md,
+	GameLauncher.h,
+	Main.cpp;
+
+mainconfig
+	"" = "GUI GAMELAUNCHER",
+	"USEMALLOC" = "GUI USEMALLOC GAMELAUNCHER",
+	"X11" = "GUI NOGTK GAMELAUNCHER",
+	"X11_USEMALLOC" = "GUI NOGTK USEMALLOC GAMELAUNCHER",
+	"X11 USEMALLOC" = "GUI NOGTK USEMALLOC GAMELAUNCHER";

@@ -1,0 +1,13 @@
+description "Reference Strategy Advisor Client for Card Games\377";
+
+uses
+	Core,
+	Core/Game;
+
+file
+	AGENTS.md,
+	CardGameClient.h,
+	main.cpp;
+
+mainconfig
+	"" = "";

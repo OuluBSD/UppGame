@@ -1,0 +1,19 @@
+description "Standalone Hearts GUI Game\377";
+
+uses
+	CtrlLib,
+	Form,
+	CardGame,
+	CardRender,
+	plugin/png;
+
+file
+	Hearts.form,
+	Hearts.h,
+	HeartsCtrl.h,
+	HeartsCtrl.cpp,
+	main.cpp;
+
+mainconfig
+	"" = "GUI";
+

@@ -1,0 +1,23 @@
+description "Platformer2D/Resource - Resource loading, decompression, cache management";
+
+uses
+	Core,
+	Draw,
+	CtrlCore,
+	Geometry,
+	Sound;
+
+file
+	AGENTS.md,
+	Resource.h,
+	Resource.cpp,
+	Decompress.h,
+	Decompress.cpp,
+	Cache.h,
+	Cache.cpp,
+	Map.h,
+	Map.cpp,
+	Episode.h,
+	Episode.cpp,
+	VAR.h,
+	VAR.cpp;

@@ -1,0 +1,10 @@
+uses
+	Core,
+	Geometry,
+	GameLib;
+
+file
+	main.cpp;
+
+mainconfig
+	"" = "";

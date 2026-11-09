@@ -1,0 +1,11 @@
+description "Platformer2DKdumper - DOS patch reference documentation (no build target)";
+
+uses
+	Platformer2D;
+
+file
+	AGENTS.md,
+	README.md;
+
+mainconfig
+	"" = "GUI";

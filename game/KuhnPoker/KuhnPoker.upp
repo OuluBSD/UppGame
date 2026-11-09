@@ -1,0 +1,18 @@
+description "Form-based Kuhn Poker example";
+
+uses
+	CtrlLib,
+	Ctrl/Easing,
+	Ctrl/Xform3D,
+	Form,
+	CardGame,
+	plugin/png;
+
+file
+	AGENTS.md,
+	KuhnPoker.h,
+	KuhnPoker.cpp,
+	KuhnPoker.form;
+
+mainconfig
+	"" = "GUI";

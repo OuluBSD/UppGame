@@ -1,0 +1,15 @@
+description "Platformer2D/Audio - OPL emulation, PC speaker, mixing, IMF music";
+
+uses
+	game/Platformer2D/Core,
+	game/Platformer2D/Resource,
+	Sound;
+
+file
+	AGENTS.md,
+	Audio.h,
+	Audio.cpp,
+	OPL.h,
+	PCSpeaker.h,
+	Mixer.h,
+	IMF.h;

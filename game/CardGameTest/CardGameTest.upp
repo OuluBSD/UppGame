@@ -1,0 +1,11 @@
+description "Unit tests for CardGame package\377";
+
+uses
+	Core,
+	CardGame;
+
+file
+	CardGameTest.cpp;
+
+mainconfig
+	"" = "";

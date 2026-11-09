@@ -1,0 +1,12 @@
+description "TexasHoldem provider catalog\377";
+
+uses
+	Core;
+
+file
+	AGENTS.md,
+	TexasHoldemProviderCatalog.h,
+	TexasHoldemProviderCatalog.cpp;
+
+mainconfig
+	"" = "";

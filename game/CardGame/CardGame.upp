@@ -1,0 +1,15 @@
+description "Shared Card Game Engine Library\377";
+
+uses
+	Core;
+
+file
+	CardGame.h,
+	Card.h,
+	Card.cpp,
+	GameState.h,
+	GameState.cpp,
+	HeartsAI.h,
+	HeartsAI.cpp,
+	DistributedReconstruction.h,
+	DistributedReconstruction.cpp;

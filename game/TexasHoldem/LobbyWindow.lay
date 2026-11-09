@@ -1,0 +1,9 @@
+LAYOUT(LobbyWindowLayout, 600, 400)
+	ITEM(ArrayCtrl, gameList, LeftPos(10, 380).TopPos(10, 180))
+	ITEM(ArrayCtrl, playerList, LeftPos(400, 190).TopPos(10, 180))
+	ITEM(RichTextView, chatDisplay, LeftPos(10, 580).TopPos(200, 150))
+	ITEM(LineEdit, chatInput, LeftPos(10, 480).TopPos(360, 30))
+	ITEM(Button, btnSend, SetLabel(t_("Send")).LeftPos(500, 90).TopPos(360, 30))
+	ITEM(Button, btnCreate, SetLabel(t_("Create Game")).LeftPos(10, 120).TopPos(360, 30))
+	ITEM(Button, btnJoin, SetLabel(t_("Join Game")).LeftPos(140, 120).TopPos(360, 30))
+END_LAYOUT

@@ -1,0 +1,13 @@
+LAYOUT(CreateGameWindowLayout, 400, 300)
+	ITEM(Label, lblName, SetLabel(t_("Game Name:")).LeftPos(10, 100).TopPos(10, 20))
+	ITEM(EditString, name, LeftPos(120, 180).TopPos(10, 20))
+	
+	ITEM(Label, lblMaxPlayers, SetLabel(t_("Max Players:")).LeftPos(10, 100).TopPos(40, 20))
+	ITEM(EditIntSpin, maxPlayers, Min(2).Max(10).LeftPos(120, 60).TopPos(40, 20))
+	
+	ITEM(Label, lblStartMoney, SetLabel(t_("Start Money:")).LeftPos(10, 100).TopPos(70, 20))
+	ITEM(EditInt, startMoney, LeftPos(120, 80).TopPos(70, 20))
+	
+	ITEM(Button, btnOK, SetLabel(t_("Create")).LeftPos(100, 80).TopPos(250, 30))
+	ITEM(Button, btnCancel, SetLabel(t_("Cancel")).LeftPos(200, 80).TopPos(250, 30))
+END_LAYOUT

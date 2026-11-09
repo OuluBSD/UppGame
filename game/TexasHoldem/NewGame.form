@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE form>
+<form>
+	<layouts>
+		<item>
+			<content>
+				<item x="0" y="0" cx="800" cy="600" align="1" valign="1">
+					<name>Background</name>
+					<properties>
+						<property name="Variable" value="background"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="StaticRect"/>
+						<property name="StaticRect.Background" value="#183820"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="220" y="70" cx="360" cy="40" align="1" valign="1">
+					<name>Title</name>
+					<properties>
+						<property name="Variable" value="title"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="28"/>
+						<property name="Font.Color" value="#FFFFFF"/>
+						<property name="Label" value="New local game"/>
+						<property name="Text.Align" value="Center"/>
+					</properties>
+				</item>
+				<item x="250" y="145" cx="170" cy="24" align="1" valign="1">
+					<name>PlayersLabel</name>
+					<properties>
+						<property name="Variable" value="playersLabel"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Color" value="#F0F0F0"/>
+						<property name="Label" value="Number of players:"/>
+						<property name="Text.Align" value="Right"/>
+					</properties>
+				</item>
+				<item x="435" y="143" cx="120" cy="28" align="1" valign="1">
+					<name>Players</name>
+					<properties>
+						<property name="Variable" value="numPlayers"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="EditInt"/>
+						<property name="Min" value="2"/>
+						<property name="Max" value="10"/>
+					</properties>
+				</item>
+				<item x="250" y="190" cx="170" cy="24" align="1" valign="1">
+					<name>CashLabel</name>
+					<properties>
+						<property name="Variable" value="cashLabel"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Color" value="#F0F0F0"/>
+						<property name="Label" value="Start cash:"/>
+						<property name="Text.Align" value="Right"/>
+					</properties>
+				</item>
+				<item x="435" y="188" cx="120" cy="28" align="1" valign="1">
+					<name>Cash</name>
+					<properties>
+						<property name="Variable" value="startCash"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="EditInt"/>
+						<property name="Min" value="1000"/>
+						<property name="Max" value="1000000"/>
+					</properties>
+				</item>
+				<item x="250" y="235" cx="170" cy="24" align="1" valign="1">
+					<name>SpeedLabel</name>
+					<properties>
+						<property name="Variable" value="speedLabel"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Color" value="#F0F0F0"/>
+						<property name="Label" value="Game speed:"/>
+						<property name="Text.Align" value="Right"/>
+					</properties>
+				</item>
+				<item x="435" y="233" cx="120" cy="28" align="1" valign="1">
+					<name>Speed</name>
+					<properties>
+						<property name="Variable" value="gameSpeed"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="EditInt"/>
+						<property name="Min" value="1"/>
+						<property name="Max" value="11"/>
+					</properties>
+				</item>
+				<item x="300" y="330" cx="95" cy="36" align="1" valign="1">
+					<name>Back</name>
+					<properties>
+						<property name="Variable" value="btnBack"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="Back"/>
+						<property name="Action" value="Back"/>
+					</properties>
+				</item>
+				<item x="405" y="330" cx="95" cy="36" align="1" valign="1">
+					<name>Start</name>
+					<properties>
+						<property name="Variable" value="btnStart"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="Start"/>
+						<property name="Action" value="StartLocalGame"/>
+					</properties>
+				</item>
+			</content>
+			<name>Default</name>
+			<properties>
+				<property name="Form.Width" value="800"/>
+				<property name="Form.Height" value="600"/>
+				<property name="Form.ScaleMode" value="Relative"/>
+				<property name="Form.Name" value="Default"/>
+			</properties>
+		</item>
+	</layouts>
+</form>

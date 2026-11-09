@@ -1,0 +1,27 @@
+description "GameScreen automated tests";
+
+uses
+	Core,
+	CtrlLib,
+	Docking,
+	plugin/jpg,
+	plugin/png;
+
+file
+	../Umbrella.h,
+	../Tile.h,
+	../Tile.cpp,
+	../MapGrid.h,
+	../MapGrid.cpp,
+	../Layer.h,
+	../Layer.cpp,
+	../LayerManager.h,
+	../LayerManager.cpp,
+	../MapSerializer.h,
+	../MapSerializer.cpp,
+	../GameScreen.h,
+	../GameScreen.cpp,
+	GameScreenTest.cpp;
+
+mainconfig
+	"" = "";

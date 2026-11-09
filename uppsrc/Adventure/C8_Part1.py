@@ -1,0 +1,1044 @@
+# C8 Part 1 - Python version
+# Converted from C8_Part1.esc (Scumm-8 by Paul Nicholls)
+# Chapter 8 - Part 1 game content
+
+# ============================================================================
+# Global Variables
+# ============================================================================
+
+# Debug flags
+show_debuginfo = False
+show_collision = False
+show_pathfinding = False
+show_perfinfo = False
+enable_mouse = True
+enable_diag_squeeze = True  # Allow squeeze through diag gap?
+
+# Graphics loading
+req_gfx_num = -1
+curr_gfx_num = -1
+
+# Game state flags (persisted via cartdata/dset)
+
+# Helper function to call nested scripts (avoids obj["scripts"]["name"]() syntax)
+def call_script(obj, script_name):
+    """Call a script from an object safely"""
+    scripts = obj.get("scripts", {})
+    fn = scripts.get(script_name)
+    if fn:
+        fn()
+
+# Slot 20: fixed_ship
+# Slot 21: ben_cutscene
+# Slot 22: disabled_signal
+# Slot 23: engine_cover_replaced
+# Slot 24: crystal_replaced
+# Slot 25: picked-up engine cover
+# Slot 26: picked-up crystals
+# Slot 27: picked-up alien hand
+# Slot 28: released ben
+# Slot 29: picked-up boulder
+
+# ============================================================================
+# Object Definitions
+# ============================================================================
+
+obj_alien_hand = {
+    "name": "alien hand",
+    "state": "state_here",
+    "x": 46,
+    "y": 52,
+    "z": 1,
+    "w": 1,
+    "h": 1,
+    "state_here": 62,
+    "use_pos": "pos_infront",
+    "use_dir": "face_back",
+    "use_with": True,
+
+    "verbs": {
+        "lookat": lambda me: say_line("it looks like a severed alien hand...:ugh!"),
+        "pickup": lambda me: (pickup_obj(me), dset(27, 1)),
+    }
+}
+
+# [ Crash Site ]
+obj_crash_door_map = {
+    "name": "path",
+    "state": "state_open",
+    "x": 0,
+    "y": 34,
+    "z": 1,
+    "w": 1,
+    "h": 3,
+    "classes": ["class_door"],
+    "use_pos": "pos_center",
+    "use_dir": "face_left",
+
+    "init": lambda me: me.update({"target_door": obj_map_door_crash})
+}
+
+obj_ship = {
+    "name": "crashed ship",
+    "x": 72,
+    "y": 40,
+    "w": 5,
+    "h": 3,
+
+    "scripts": {
+        "view_my_engine": lambda: change_room(rm_ship_engine, 1)
+    },
+
+    "verbs": {
+        "lookat": lambda me: obj_ship["scripts"].get("view_my_engine", lambda: None)(),
+        "walkto": lambda me: obj_ship["scripts"].get("view_my_engine", lambda: None)(),
+    }
+}
+
+obj_engine_cover = {
+    "name": "engine cover",
+    "state": "state_closed",
+    "x": 76,
+    "y": 12,
+    "z": 1,
+    "w": 2,
+    "h": 4,
+    "use_with": True,
+    "classes": ["class_pickupable"],
+    "use_pos": "pos_infront",
+    "use_dir": "face_back",
+
+    "draw": lambda me: engine_cover_draw(me),
+
+    "verbs": {
+        "lookat": lambda me: say_line("this engine cover is intact:it would be perfect to fix my ship"),
+        "pickup": lambda me: (pickup_obj(me), dset(25, 1)),
+        "use": lambda me, noun2: engine_cover_use(me, noun2)
+    }
+}
+
+
+def engine_cover_draw(me):
+    """Engine cover draw handler"""
+    # Engine cover - in inventory?
+    if me.get("owner") == selected_actor:
+        spr(15, me["x"], me["y"] + 16, 1, 1)
+    elif me.get("in_room") == rm_bens_ship_inside:
+        spr(43, me["x"], me["y"] + 16, 2, 2)
+    else:
+        set_trans_col(3, True)
+        map_draw(32, 0, 40, 24, 6, 6)
+
+
+def engine_cover_use(me, noun2):
+    """Engine cover use handler"""
+    if noun2 == obj_engine:
+        put_at(me, 52, 8, rm_ship_engine)
+        main_actor["engine_cover_replaced"] = True  # Not same as fixed ship, just cover!
+        dset(23, 1)
+        say_line("that's better!")
+        # Check to see if we've fixed the ships
+        call_script(rm_ship_engine, "check_engine")
+
+
+rm_crash = {
+    "map": [16, 8, 31, 15],
+    "min_autoscale": 0,
+    "autoscale_zoom": 0.75,
+    "col_replace": [11, 0],
+
+    "objects": [
+        obj_crash_door_map,
+        obj_ship,
+    ],
+
+    "enter": lambda me: crash_enter(me),
+    "exit": lambda me: None,
+    # Pause clock while not in room
+    # stop_script(me["scripts"]["anim_clock"])
+
+    "scripts": {}
+}
+
+
+def crash_enter(me):
+    """Crash site room enter handler"""
+    global selected_actor
+
+    # Switch gfx
+    load_gfx_page(1)
+
+    if not me.get("done_intro"):
+        # Don't do this again
+        me["done_intro"] = True
+
+        # Set which actor the player controls by default
+        selected_actor = main_actor
+
+        # Init actor
+        put_at(selected_actor, 60, 60, rm_crash)
+
+        # Make camera follow player (setting now, will be re-instated after cutscene)
+        camera_follow(selected_actor)
+
+    if main_actor.get("fixed_ship"):
+        me["col_replace"] = None
+
+
+# [ Ship's Engine "Room" ]
+obj_engine_door_back = {
+    "name": "crash site",
+    "state": "state_open",
+    "x": 0,
+    "y": 0,
+    "z": -10,
+    "w": 16,
+    "h": 16,
+    "classes": ["class_door"],
+    "use_pos": "pos_center",
+    "use_dir": "face_front",
+
+    "verbs": {
+        "walkto": lambda me: (put_at(selected_actor, 86, 61, rm_crash), change_room(rm_crash, 1))
+    }
+}
+
+obj_engine = {
+    "name": "engine",
+    "state": "state_closed",
+    "x": 46,
+    "y": 14,
+    "z": 1,
+    "w": 5,
+    "h": 5,
+    "use_pos": "pos_infront",
+    "use_dir": "face_back",
+
+    "verbs": {
+        "lookat": lambda me: engine_lookat(me)
+    }
+}
+
+
+def engine_lookat(me):
+    """Engine look-at handler"""
+    if main_actor.get("fixed_ship"):
+        say_line("the engine is ready for take-off!")
+    else:
+        say_line("it's what's left of my ship's engine")
+
+
+def ship_engine_check_engine():
+    """Check if engine is fixed"""
+    if main_actor.get("engine_cover_replaced") and main_actor.get("crystal_replaced"):
+        # Fixed ship!!
+        main_actor["fixed_ship"] = True
+        dset(20, 1)
+        say_line("yes, my ship is fixed!")
+
+
+rm_ship_engine = {
+    "map": [16, 0, 31, 7],
+
+    "objects": [
+        obj_engine_door_back,
+        obj_engine,
+        # obj_engine_cover,
+    ],
+
+    "enter": lambda me: ship_engine_enter(me),
+    "exit": lambda me: None,  # todo: "anything here?"
+
+    "scripts": {
+        "check_engine": ship_engine_check_engine
+    }
+}
+
+
+def ship_engine_enter(me):
+    """Ship engine room enter handler"""
+    # Switch gfx
+    load_gfx_page(3)
+
+    # Check to see if we've fixed the ships
+    call_script(me, "check_engine")
+
+    # Initial cutscene?
+    if (not main_actor.get("engine_cover_replaced")
+            and obj_engine_cover.get("owner") != selected_actor
+            and obj_crystal.get("owner") != selected_actor):
+        cutscene(
+            3,  # no verbs & no follow
+            lambda: (
+                break_time(100),
+                say_line("my ship needs to be repaired:the engine cover is missing...:and the energy crystal has shattered...:without them, i have no way to get home!"),
+                change_room(rm_crash, 1)
+            )
+        )
+
+
+# [ Map "Room" ]
+obj_map_door_crash = {
+    "name": "my spaceship",
+    "state": "state_open",
+    "x": 50,
+    "y": 40,
+    "z": 1,
+    "w": 1,
+    "h": 1,
+    "classes": ["class_door"],
+    "use_pos": "pos_left",
+    "use_dir": "face_right",
+
+    "init": lambda me: me.update({"target_door": obj_crash_door_map})
+}
+
+obj_map_door_graves = {
+    "name": "graves",
+    "state": "state_open",
+    "x": 26,
+    "y": -2,
+    "z": 1,
+    "w": 2,
+    "h": 2,
+    "classes": ["class_door"],
+    "use_pos": [29, 12],
+    "use_dir": "face_back",
+
+    "init": lambda me: me.update({"target_door": obj_graves_door_map})
+}
+
+obj_map_door_cave = {
+    "name": "crystal cave",
+    "state": "state_open",
+    "x": 3,
+    "y": 52,
+    "z": 1,
+    "w": 2,
+    "h": 1,
+    "classes": ["class_door"],
+    "use_pos": [15, 60],
+    "use_dir": "face_back",
+
+    "init": lambda me: me.update({"target_door": obj_cave_door_map})
+}
+
+obj_map_signal = {
+    "name": "signal generator",
+    "state": "state_open",
+    "x": 104,
+    "y": 9,
+    "z": 1,
+    "w": 2,
+    "h": 1,
+    "use_pos": [111, 16],
+    "use_dir": "face_back",
+
+    "draw": lambda me: (
+        line(112, 9 + 16, 112, 0 + 16, 8 if flr(rnd(2)) == 0 else 9)
+        if not main_actor.get("disabled_signal") else None
+    ),
+
+    "verbs": {
+        "walkto": lambda me: signal_walkto(me)
+    }
+}
+
+
+def signal_walkto(me):
+    """Signal generator walk-to handler"""
+    if not main_actor.get("disabled_signal"):
+        dset(10, 2)  # Signal generator
+        load("_game-pt2")
+    else:
+        say_line("i'd better not, it's crawling with aliens!")
+
+
+obj_map_alienbase = {
+    "name": "alien base",
+    "state": "state_open",
+    "x": 106,
+    "y": 26,
+    "z": 1,
+    "w": 3,
+    "h": 3,
+    "classes": ["class_door"],
+    "use_pos": [108, 34],
+    "use_dir": "face_back",
+
+    "verbs": {
+        "walkto": lambda me: (
+            # printh("load disk 2!!!")
+            # Set flag for entered/exited door
+            dset(10, 3),  # Alien base (outside)
+            load("_game-pt2")
+        )
+    }
+}
+
+obj_map_bridge = {
+    "name": "bridge",
+    "state": "state_open",
+    "x": 61,
+    "y": 8,
+    "z": 1,
+    "w": 1,
+    "h": 1,
+    "classes": ["class_untouchable"],
+    "use_pos": "pos_center",
+    "use_dir": "face_back",
+    "alerting": False
+}
+
+
+def map_bridge_guard():
+    """Map room - bridge guard script"""
+    while True:
+        # printh("prox:"..proximity(main_actor, obj_map_bridge))
+        if (proximity(main_actor, obj_map_bridge) <= 6
+                and not main_actor.get("fixed_ship")
+                and not obj_map_bridge["alerting"]):
+            # Warn player to fix ship first
+            obj_map_bridge["alerting"] = True
+            cutscene(
+                2,
+                lambda: (
+                    stop_actor(selected_actor),
+                    say_line("i think i should fix my ship before i go exploring!"),
+                    walk_to(selected_actor, 42, 11),
+                    obj_map_bridge.update({"alerting": False})
+                )
+            )
+        break_time(10)
+
+
+rm_map = {
+    "map": [32, 8, 47, 15],
+
+    "objects": [
+        obj_map_door_crash,
+        obj_map_door_graves,
+        obj_map_door_cave,
+        obj_map_bridge,
+        obj_map_signal,
+        obj_map_alienbase,
+    ],
+
+    "enter": lambda me: map_enter(me),
+    "exit": lambda me: map_exit(me),
+
+    "scripts": {  # Scripts that are at room-level
+        "bridge_guard": map_bridge_guard
+    }
+}
+
+
+def map_enter(me):
+    """Map room enter handler"""
+    # Switch gfx
+    load_gfx_page(5)
+    selected_actor["scale"] = 0.2
+    selected_actor["walk_speed"] = 2
+    # BG script
+    start_script(me["scripts"]["bridge_guard"], True)
+
+
+def map_exit(me):
+    """Map room exit handler"""
+    selected_actor["scale"] = None
+    selected_actor["walk_speed"] = 0.6
+    stop_script(me["scripts"]["bridge_guard"])
+
+
+# [ Graveyard ]
+obj_graves_door_map = {
+    "name": "path",
+    "state": "state_open",
+    "x": 0,
+    "y": 34,
+    "z": 1,
+    "w": 1,
+    "h": 4,
+    "classes": ["class_door"],
+    "use_pos": "pos_center",
+    "use_dir": "face_left",
+
+    "init": lambda me: me.update({"target_door": obj_map_door_graves})
+}
+
+obj_graves_door_bencrash = {
+    "name": "large crashed ship",
+    "state": "state_open",
+    "x": 16,
+    "y": 4,
+    "z": 1,
+    "w": 3,
+    "h": 5,
+    "classes": ["class_door"],
+    "use_pos": [30, 38],
+    "use_dir": "face_back",
+
+    "init": lambda me: me.update({"target_door": obj_benship_door_bencrash})
+}
+
+obj_graves = {
+    "name": "unmarked graves",
+    "x": 56,
+    "y": 36,
+    "w": 4,
+    "h": 3,
+    "use_dir": "face_right",
+
+    "verbs": {
+        "lookat": lambda me: say_line("two graves...:with space helmets for headstones:i wonder who they were?")
+    }
+}
+
+rm_graves = {
+    "map": [32, 8, 47, 15],
+    "autoscale_zoom": 0.75,
+
+    "objects": [
+        obj_graves_door_map,
+        obj_graves_door_bencrash,
+        obj_graves,
+    ],
+
+    "enter": lambda me: load_gfx_page(2),
+    "exit": lambda me: None  # todo: "anything here?"
+}
+
+
+# [ Inside Ben's Ship ]
+obj_benship_door_bencrash = {
+    "name": "outside",
+    "state": "state_open",
+    "x": 58,
+    "y": 14,
+    "z": 1,
+    "w": 1,
+    "h": 4,
+    "classes": ["class_door"],
+    "use_pos": "pos_right",
+    "use_dir": "face_left",
+
+    "init": lambda me: me.update({"target_door": obj_graves_door_bencrash})
+}
+
+obj_holobase = {
+    "name": "hologram viewer",
+    "state": "state_here",
+    "x": 104,
+    "y": 48,
+    "z": 1,
+    "w": 2,
+    "h": 1,
+    "state_here": 217,
+    "use_pos": "pos_left",
+    "use_dir": "face_right",
+
+    "verbs": {
+        "use": lambda me: call_script(rm_bens_ship_inside, "play_holo"),
+        "lookat": lambda me: call_script(rm_bens_ship_inside, "play_holo")
+    }
+}
+
+obj_holo_overlay = {
+    "name": "",
+    "state": "state_here",
+    "x": 107,
+    "y": 32,
+    "z": -1,
+    "w": 1,
+    "h": 1,
+    "classes": ["class_untouchable"],
+
+    "draw": lambda me: holo_overlay_draw(me)
+}
+
+
+def holo_overlay_draw(me):
+    """Holo overlay draw handler"""
+    for x in range(1, 9):
+        y = rnd(32) + 30
+        line(me["x"], y, me["x"] + 9, y, 0)
+
+
+def bens_ship_play_holo():
+    """Play holo cutscene"""
+    cutscene(
+        3,  # no verbs & no follow
+        lambda: bens_ship_play_holo_inner()
+    )
+
+
+def bens_ship_play_holo_inner():
+    """Play holo cutscene - inner function"""
+    main_actor["played_holo"] = True
+    say_line_actor(selected_actor, "lets see what this does...", False, 100)
+    ben_holo_actor["lighting"] = 0
+    put_at(ben_holo_actor, 112, 46, rm_bens_ship_inside)
+    obj_holo_overlay["z"] = 50
+    selected_actor = ben_holo_actor
+
+    while ben_holo_actor["lighting"] < 1:
+        ben_holo_actor["lighting"] = ben_holo_actor["lighting"] + 0.01
+        break_time(1)
+
+    break_time(25)
+    say_line("this is the log of captain ben octavi:our ship crashed and i am the sole survivor")
+    break_time(40)
+    say_line("i am in great danger:something is trying to break through the ship's hull:i don't know what it wants, but-:oh no!:it's here...")
+
+    while ben_holo_actor["lighting"] > 0:
+        ben_holo_actor["lighting"] = ben_holo_actor["lighting"] - 0.02
+        break_time(1)
+
+    selected_actor = main_actor
+    put_at(ben_holo_actor, 0, 0, rm_void)
+    obj_holo_overlay["z"] = -1
+
+
+rm_bens_ship_inside = {
+    "map": [48, 8, 67, 15],
+
+    "objects": [
+        obj_benship_door_bencrash,
+        obj_holobase,
+        obj_holo_overlay,
+        obj_engine_cover,
+        obj_alien_hand,
+    ],
+
+    "enter": lambda me: load_gfx_page(4),
+    "exit": lambda me: bens_ship_exit(me),
+
+    "scripts": {
+        "play_holo": bens_ship_play_holo
+    }
+}
+
+
+def bens_ship_exit(me):
+    """Ben's ship inside exit handler"""
+    # Check for ben cutscene
+    if main_actor.get("played_holo") and main_actor.get("ben_cutscene") == 0:
+        # printh("doing cutscene!")
+        cutscene(
+            3,  # no verbs & no follow
+            lambda: (
+                dset(21, 0.5),
+                # fades(1, 1)  # Fade out
+                change_room(rm_void),
+                # fades(1, -1)
+                print_line("meanwhile...", 64, 45, 7, 1, True),
+                # fades(1, 1)  # Fade out
+                load("_game-pt2")
+            )
+        )
+
+
+# [ Cave ]
+obj_cave_door_map = {
+    "name": "path",
+    "state": "state_open",
+    "x": 16,
+    "y": 8,
+    "z": 1,
+    "w": 15,
+    "h": 5,
+    "classes": ["class_door"],
+    "use_pos": [45, 40],
+    "use_dir": "face_back",
+
+    "init": lambda me: me.update({"target_door": obj_map_door_cave})
+}
+
+obj_crystal = {
+    "name": "crystal",
+    "state": "state_open",
+    "x": 15,
+    "y": 48,
+    "z": 1,
+    "w": 1,
+    "h": 1,
+    "state_open": 31,
+    "use_with": True,
+    "use_dir": "face_left",
+
+    "draw": lambda me: crystal_draw(me),
+
+    "verbs": {
+        "lookat": lambda me: say_line("an energy crystal:just what i need to power my spaceship!"),
+        "pickup": lambda me: say_line("*ugh*:*ughhhh*:it won't even budge!"),
+        "use": lambda me, noun2: crystal_use(me, noun2)
+    }
+}
+
+
+def crystal_draw(me):
+    """Crystal draw handler"""
+    pal()
+    set_trans_col(14, True)
+
+    # In inventory?
+    if me.get("in_room") == rm_cave or me.get("owner") == selected_actor:
+        spr(31, me["x"], me["y"] + 16, 1, 1)
+    else:
+        map_draw(38, 0, 56, 39, 2, 2)
+
+
+def crystal_use(me, noun2):
+    """Crystal use handler"""
+    if noun2 == obj_engine:
+        me["z"] = -2
+        put_at(me, 0, 0, rm_ship_engine)
+        main_actor["crystal_replaced"] = True
+        dset(24, 1)
+        say_line("now we have power!")
+        # Check to see if we've fixed the ships
+        call_script(rm_ship_engine, "check_engine")
+
+
+obj_boulder = {
+    "name": "boulder",
+    "state": "state_here",
+    "x": 78,
+    "y": 52,
+    "z": 1,
+    "w": 1,
+    "h": 1,
+    "state_here": 46,
+    "trans_col": 3,
+    "use_pos": "pos_infront",
+    "use_dir": "face_back",
+    "use_with": True,
+
+    "verbs": {
+        "lookat": lambda me: say_line("it looks heavy...;and indestructible"),
+        "pickup": lambda me: (pickup_obj(me), dset(29, 1)),
+    }
+}
+
+rm_cave = {
+    "map": [32, 8, 47, 15],
+    "autoscale_zoom": 0.75,
+
+    "objects": [
+        obj_cave_door_map,
+        obj_crystal,
+        obj_boulder,
+    ],
+
+    "enter": lambda me: cave_enter(me),
+    "exit": lambda me: None,  # todo: "anything here?"
+}
+
+
+def cave_enter(me):
+    """Cave room enter handler"""
+    # Switch gfx
+    load_gfx_page(6)
+
+    # Crystal gone?
+    if obj_crystal.get("in_room") != me:
+        me["col_replace"] = [3, 1]
+
+    # Auto walk
+    start_script(lambda: (
+        break_time(1),
+        # put_at(selected_actor, 52, 40)
+        walk_to(selected_actor, 70, 58)
+    ))
+
+
+# ============================================================================
+# Void Room
+# ============================================================================
+
+obj_lasertool = {
+    "name": "laser tool",
+    "state": "state_open",
+    "x": 0,
+    "y": 0,
+    "w": 1,
+    "h": 1,
+    "state_open": 47,
+    "trans_col": 0,
+    "use_with": True,
+    "classes": ["class_pickupable"],
+
+    "verbs": {
+        "lookat": lambda me: say_line("it's my trusty laser tool:cuts through anything!"),
+        # "pickup": lambda me: pickup_obj(me),
+        "use": lambda me, noun2: lasertool_use(me, noun2)
+    }
+}
+
+
+def lasertool_use(me, noun2):
+    """Lasertool use handler"""
+    if noun2 == obj_crystal:
+        cutscene(
+            2,
+            lambda: (
+                say_line("let's get that crystal...:*dink*"),
+                pickup_obj(obj_crystal, selected_actor),
+                dset(26, 1),
+                rm_cave.update({"col_replace": [3, 1]}),
+                say_line("there we go!")
+            )
+        )
+
+
+rm_void = {
+    "map": [0, 0],
+
+    "objects": [
+        obj_lasertool,
+    ]
+}
+
+
+# ============================================================================
+# Room Lists
+# ============================================================================
+
+rooms = [
+    rm_void,
+    rm_map,
+    rm_crash,
+    rm_ship_engine,
+    rm_graves,
+    rm_bens_ship_inside,
+    # rm_ben_engine,  # Not defined in this part
+    rm_cave,
+]
+
+
+# ============================================================================
+# Actor Definitions
+# ============================================================================
+
+# Initialize the player's actor object
+main_actor = {
+    "name": "humanoid",
+    "w": 1,
+    "h": 4,
+    "idle": [65, 69, 71, 69],
+    "talk": [90, 91, 92, 91],
+    "walk_anim_side": [68, 69, 70, 69],
+    "walk_anim_front": [66, 65, 67, 65],
+    "walk_anim_back": [72, 71, 73, 71],
+    "col": 7,
+    "trans_col": 11,
+    "walk_speed": 0.6,
+    "frame_delay": 5,
+    "classes": ["class_actor"],
+    "face_dir": "face_front",
+
+    # Sprites for directions (front, left, back, right) - note: "right=left-flipped"
+    "inventory": [
+        # obj_switch_tent
+    ],
+
+    "verbs": {
+        "use": lambda me: (
+            selected_actor.__setitem__("value", me),
+            camera_follow(me)
+        )
+    }
+}
+
+ben_holo_actor = {
+    "name": "hologram",
+    "x": 0,
+    "y": 0,
+    "w": 1,
+    "h": 4,
+    "idle": [10, 10, 10, 10],
+    "talk": [27, 27, 27, 27],
+    "col": 12,
+    "trans_col": 3,
+    "walk_speed": 0.4,
+    "frame_delay": 5,
+    "classes": ["class_actor"],
+    "face_dir": "face_front",
+    "use_pos": [98, 50],
+    "scale": 1,
+
+    "in_room": rm_void,
+
+    "inventory": [],
+
+    "verbs": {
+        "lookat": lambda me: None  # say_line("")
+    }
+}
+
+
+# ============================================================================
+# Active Actors List
+# ============================================================================
+
+actors = [
+    main_actor,
+    ben_holo_actor,
+]
+
+
+# ============================================================================
+# Startup Script
+# ============================================================================
+
+def startup_script():
+    """Initial game setup - Chapter 8 Part 1"""
+    global selected_actor
+
+    cartdata("pn_code8")
+
+    # Data slots (0..63):
+    # 00) selected_player (unused for now)
+    # 01) player inventory #1
+    # 02) player inventory #2
+    # ...
+    # 10) entered-door (for switching rooms across carts)
+    #  > 0 = unset
+    #  > 1 = bridge (unused)
+    #  > 2 = signal generator
+    #  > 3 = alien base (outside)
+    #  > ...
+    # 11) selected_player (unused for now)
+    # 12)
+    # > ...
+    # (Game state flags)
+    # 20) fixed ship (1/0)
+    # 21) cutscene of ben in cell (1/0)
+    # 22) signal disabled
+    # 23) engine cover repaired
+    # 24) new crystals installed
+    # 25) picked-up engine cover
+    # 26) picked-up crystals
+    # 27) picked-up alien hand
+    # 28) released ben
+    # 29) picked-up boulder
+
+    # ####################################################################
+    # Test!!!
+    # ####################################################################
+    # dset(20, 0)  #
+    # dset(25, 1)  #
+    # dset(26, 1)  #
+    # ####################################################################
+
+    # for d in range(10, 30):
+    #     printh("dget("..d..")="..dget(d))
+
+    # Permanent inventory?
+    pickup_obj(obj_lasertool, main_actor)
+
+    # Game states
+    if dget(20) == 1:
+        main_actor["fixed_ship"] = True
+
+    main_actor["ben_cutscene"] = dget(21)
+
+    if dget(22) == 1:
+        main_actor["disabled_signal"] = True
+
+    if dget(23) == 1:
+        main_actor["engine_cover_replaced"] = True  # Not same as fixed ship, just cover!
+
+    if dget(24) == 1:
+        main_actor["crystal_replaced"] = True
+
+    if dget(25) == 1 and not main_actor.get("engine_cover_replaced"):
+        pickup_obj(obj_engine_cover, main_actor)
+
+    if dget(26) == 1 and not main_actor.get("crystal_replaced"):
+        pickup_obj(obj_crystal, main_actor)
+
+    # Ben released + alien hand states
+    if dget(28) == 1:
+        main_actor["released_ben"] = True
+        put_at(obj_alien_hand, 0, 0, rm_void)
+
+    if dget(27) == 1 and not main_actor.get("released_ben"):
+        pickup_obj(obj_alien_hand, main_actor)
+
+    if dget(29) == 1 and not main_actor.get("disabled_signal"):
+        pickup_obj(obj_boulder, main_actor)
+
+    # Repair state
+    if main_actor.get("engine_cover_replaced"):
+        put_at(obj_engine_cover, 0, 0, rm_ship_engine)
+
+    if main_actor.get("crystal_replaced"):
+        put_at(obj_crystal, 0, 0, rm_ship_engine)
+
+    # ####################################################################
+    # Test!!!
+    # ####################################################################
+    # dset(10, 0)
+    # main_actor["fixed_ship"] = True
+    # pickup_obj(obj_boulder, main_actor)
+    # dset(29, 1)
+    # dset(20, 1)
+    # main_actor["played_holo"] = True
+    # put_at(selected_actor, 50, 50, rm_bens_ship_inside)
+    # change_room(rm_bens_ship_inside, 1)
+    # ####################################################################
+
+    # Still controlling player
+    selected_actor = main_actor
+    camera_follow(selected_actor)
+
+    music(1)
+
+    # Check for first/direct load (e.g. not from disk_2)
+    if dget(10) == 0:
+        # #################################
+        # Test
+        # main_actor["fixed_ship"] = True
+        # pickup_obj(obj_boulder, main_actor)
+        # dset(29, 1)
+        # dset(20, 1)
+        # main_actor["played_holo"] = True
+        # put_at(selected_actor, 50, 50, rm_bens_ship_inside)
+        # change_room(rm_bens_ship_inside, 1)
+        # Start of game
+        change_room(rm_crash, 1)
+
+    elif dget(10) == 1:
+        # printh("back from cut 1")
+        come_out_door(obj_benship_door_bencrash, obj_graves_door_bencrash, 1)
+
+    else:
+        # Check starting room/door
+        if dget(10) == 2:
+            # Crash
+            # printh("crash")
+            come_out_door(obj_map_door_crash, obj_crash_door_map)
+
+        elif dget(10) == 3:
+            # Graves
+            # printh("graves")
+            come_out_door(obj_map_door_graves, obj_graves_door_map)
+
+        elif dget(10) == 7:
+            # Cave
+            # printh("cave")
+            come_out_door(obj_map_door_cave, obj_cave_door_map)
+
+    # if not cutscene
+
+    # ####################################################################
+    # Test!!!
+    # ####################################################################
+    # ####################################################################
+    # change_room(rm_crash, 1)  # Iris fade
+    # For any other room
+    # selected_actor = main_actor
+    # put_at(selected_actor, 48, 46, rm_map)
+    # camera_follow(selected_actor)
+    # change_room(rm_map)  # Iris fade

@@ -1,0 +1,14 @@
+description "Platformer2D/Render - Indexed EGA renderer, palette, sprites, text";
+
+uses
+	game/Platformer2D/Core,
+	game/Platformer2D/Resource;
+
+file
+	AGENTS.md,
+	Render.h,
+	Render.cpp,
+	Surface.h,
+	Palette.h,
+	Blit.h,
+	Text.h;

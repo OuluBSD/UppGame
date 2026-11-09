@@ -1,0 +1,4 @@
+BINARY(builtin_gfx, "builtin_gfx.bin")
+BINARY(builtin_lbl, "builtin_lbl.bin")
+BINARY(builtin_gff, "builtin_gff.bin")
+BINARY(builtin_map, "builtin_map.bin")

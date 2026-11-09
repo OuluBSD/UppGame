@@ -1,0 +1,10 @@
+LAYOUT(StartWindowLayout, 400, 350)
+	ITEM(Upp::Button, btnLocalGame, SetLabel(t_("New local game")).LeftPosZ(100, 200).TopPosZ(20, 40))
+	ITEM(Upp::Button, btnInternetGame, SetLabel(t_("Internet game")).LeftPosZ(100, 200).TopPosZ(70, 40))
+	ITEM(Upp::Button, btnNetworkGame, SetLabel(t_("Network game")).LeftPosZ(100, 200).TopPosZ(120, 40))
+	ITEM(Upp::Button, btnSettings, SetLabel(t_("Settings")).LeftPosZ(100, 200).TopPosZ(170, 40))
+	ITEM(Upp::Button, btnLog, SetLabel(t_("Log")).LeftPosZ(100, 200).TopPosZ(220, 40))
+	ITEM(Upp::Button, btnQuit, SetLabel(t_("Exit")).LeftPosZ(100, 200).TopPosZ(270, 40))
+	ITEM(Upp::Label, version, SetLabel(t_("PKR U++ Port v0.1")).LeftPosZ(10, 200).TopPosZ(325, 20))
+END_LAYOUT
+

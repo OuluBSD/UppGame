@@ -1,0 +1,31 @@
+description "Generic card game rules and interfaces\377";
+
+uses
+	Core,
+	Draw,
+	EditorCommon;
+
+file
+	GameRules.h,
+	HandInterface.h,
+	BoardInterface.h,
+	BeroInterface.h,
+	PlayerInterface.h,
+	EngineFactory.h,
+	GuiInterface.h,
+	GameData.h,
+	PlayerData.h,
+	PlayerData.cpp,
+	GameDefs.h,
+	EngineDefs.h,
+	LocalPlayer.h,
+	LocalPlayer.cpp,
+	EngineLog.h,
+	EngineLog.cpp,
+	Exception.h,
+	Exception.cpp,
+	ArrayData.h,
+	ArrayData.cpp,
+	Game.h,
+	Game.cpp;
+

@@ -1,0 +1,9 @@
+description "Shared card art rendering helpers\377";
+
+uses
+	Core,
+	Draw;
+
+file
+	CardRender.h,
+	CardRender.cpp;

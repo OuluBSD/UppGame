@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE form>
+<form>
+	<layouts>
+		<item>
+			<content>
+				<item x="0" y="0" cx="400" cy="350" align="1" valign="1">
+					<name>Background</name>
+					<properties>
+						<property name="Variable" value="background"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="StaticRect"/>
+						<property name="StaticRect.Background" value="#183820"/>
+						<property name="Anchor" value="SIZE"/>
+					</properties>
+				</item>
+				<item x="18" y="16" cx="250" cy="28" align="1" valign="1">
+					<name>Title</name>
+					<properties>
+						<property name="Variable" value="title"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Height" value="22"/>
+						<property name="Font.Color" value="#FFFFFF"/>
+						<property name="Label" value="PKR U++ Port"/>
+						<property name="Text.Align" value="Left"/>
+					</properties>
+				</item>
+				<item x="18" y="48" cx="90" cy="20" align="1" valign="1">
+					<name>ProviderLabel</name>
+					<properties>
+						<property name="Variable" value="providerLabel"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Color" value="#F0F0F0"/>
+						<property name="Label" value="Provider:"/>
+						<property name="Text.Align" value="Left"/>
+					</properties>
+				</item>
+				<item x="108" y="46" cx="190" cy="22" align="1" valign="1">
+					<name>ProviderChoice</name>
+					<properties>
+						<property name="Variable" value="providerChoice"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="DropList"/>
+					</properties>
+				</item>
+				<item x="100" y="82" cx="200" cy="36" align="1" valign="1">
+					<name>LocalGame</name>
+					<properties>
+						<property name="Variable" value="btnLocalGame"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="New local game"/>
+						<property name="Action" value="LocalGame"/>
+					</properties>
+				</item>
+				<item x="100" y="124" cx="200" cy="36" align="1" valign="1">
+					<name>InternetGame</name>
+					<properties>
+						<property name="Variable" value="btnInternetGame"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="Internet game"/>
+						<property name="Action" value="InternetGame"/>
+					</properties>
+				</item>
+				<item x="100" y="166" cx="200" cy="36" align="1" valign="1">
+					<name>NetworkGame</name>
+					<properties>
+						<property name="Variable" value="btnNetworkGame"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="Network game"/>
+						<property name="Action" value="NetworkGame"/>
+					</properties>
+				</item>
+				<item x="100" y="208" cx="200" cy="36" align="1" valign="1">
+					<name>Settings</name>
+					<properties>
+						<property name="Variable" value="btnSettings"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="Settings"/>
+						<property name="Action" value="Settings"/>
+					</properties>
+				</item>
+				<item x="100" y="250" cx="200" cy="36" align="1" valign="1">
+					<name>Log</name>
+					<properties>
+						<property name="Variable" value="btnLog"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="Log"/>
+						<property name="Action" value="Log"/>
+					</properties>
+				</item>
+				<item x="100" y="292" cx="200" cy="36" align="1" valign="1">
+					<name>Quit</name>
+					<properties>
+						<property name="Variable" value="btnQuit"/>
+						<property name="Frame" value="Default frame"/>
+						<property name="Type" value="Button"/>
+						<property name="Label" value="Exit"/>
+						<property name="Action" value="Quit"/>
+					</properties>
+				</item>
+				<item x="18" y="324" cx="180" cy="16" align="1" valign="1">
+					<name>Version</name>
+					<properties>
+						<property name="Variable" value="version"/>
+						<property name="Frame" value="Null frame"/>
+						<property name="Type" value="Label"/>
+						<property name="Font.Color" value="#DCDCDC"/>
+						<property name="Label" value="PKR U++ Port v0.1"/>
+						<property name="Text.Align" value="Left"/>
+					</properties>
+				</item>
+			</content>
+			<name>Default</name>
+			<properties>
+				<property name="Form.Width" value="400"/>
+				<property name="Form.Height" value="350"/>
+				<property name="Form.MaximizeBox" value="true"/>
+				<property name="Form.MinimizeBox" value="true"/>
+				<property name="Form.Sizeable" value="true"/>
+				<property name="Form.ToolWindow" value="false"/>
+				<property name="Form.Name" value="Default"/>
+				<property name="Form.Title" value="PKR - Texas Hold'em"/>
+			</properties>
+		</item>
+	</layouts>
+</form>

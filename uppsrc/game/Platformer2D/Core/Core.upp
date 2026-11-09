@@ -1,0 +1,21 @@
+description "Platformer2D/Core - Fixed-step simulation, episode management, game state, object/action system";
+
+uses
+	Draw,
+	CtrlCore,
+	Geometry,
+	Sound,
+	game/Platformer2D/Resource;
+
+file
+	AGENTS.md,
+	Core.h,
+	Core.cpp,
+	ObjectSystem.h,
+	ObjectSystem.cpp,
+	Physics.h,
+	Physics.cpp,
+	EpisodeActions.h,
+	EpisodeActions.cpp,
+	DemoSystem.h,
+	DemoSystem.cpp;

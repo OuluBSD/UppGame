@@ -1,0 +1,10 @@
+uses
+	Core;
+
+file
+	Tools.h,
+	Tools.cpp,
+	TestAssets.cpp;
+
+mainconfig
+	"" = "";

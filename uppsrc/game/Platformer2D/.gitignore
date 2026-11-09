@@ -1,0 +1,53 @@
+# Platformer2D - Ignore original game data files (non-free, external)
+# These are required at runtime but must not be committed
+
+# Original game resource files (required for each episode)
+GAMEMAPS.CK4
+GAMEMAPS.CK5
+GAMEMAPS.CK6
+EGAGRAPH.CK4
+EGAGRAPH.CK5
+EGAGRAPH.CK6
+AUDIO.CK4
+AUDIO.CK5
+AUDIO.CK6
+
+# Episode configuration files (may be modified at runtime)
+EPISODE.CK4
+EPISODE.CK5
+EPISODE.CK6
+
+# Save games and config
+*.CK4
+*.CK5
+*.CK6
+OMNISPK.CFG
+CONFIG.CK4
+CONFIG.CK5
+CONFIG.CK6
+
+# Dump files (generated during testing)
+*.dump
+*.dump4
+*.dump5
+*.dump6v14
+*.dump6v15
+
+# Log directory
+log/
+*.log
+
+# Build artifacts (if built in-source)
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

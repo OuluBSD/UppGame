@@ -1,0 +1,115 @@
+LAYOUT(SettingsWindowLayout, 650, 480)
+	ITEM(Upp::ArrayCtrl, list, LeftPosZ(8, 160).TopPosZ(8, 424))
+	ITEM(Upp::ParentCtrl, pages, LeftPosZ(176, 466).TopPosZ(8, 424))
+	ITEM(Upp::Label, sepW, LeftPosZ(8, 634).TopPosZ(436, 4))
+	ITEM(Upp::Button, btnOK, SetLabel(t_("OK")).LeftPosZ(466, 80).TopPosZ(444, 30))
+	ITEM(Upp::Button, btnCancel, SetLabel(t_("Cancel")).LeftPosZ(562, 80).TopPosZ(444, 30))
+END_LAYOUT
+
+LAYOUT(SettingsInterfaceLayout, 460, 410)
+	ITEM(Upp::Label, lblTitle, SetLabel(t_("Interface")).LeftPosZ(8, 200).TopPosZ(8, 20))
+	ITEM(Upp::Label, sepI, LeftPosZ(8, 444).TopPosZ(28, 4))
+	ITEM(Upp::TabCtrl, tab, LeftPosZ(8, 444).TopPosZ(40, 362))
+END_LAYOUT
+
+LAYOUT(SettingsInterfaceCommonLayout, 440, 330)
+	ITEM(Upp::Label, lblLang, SetLabel(t_("Language:")).LeftPosZ(8, 80).TopPosZ(8, 20))
+	ITEM(Upp::DropList, language, LeftPosZ(96, 150).TopPosZ(8, 20))
+	ITEM(Upp::Label, lblApp, SetLabel(t_("Appearance:")).LeftPosZ(8, 80).TopPosZ(35, 20))
+	ITEM(Upp::DropList, appearance, LeftPosZ(96, 150).TopPosZ(35, 20))
+	ITEM(Upp::Option, showRightToolbox, SetLabel(t_("Show right toolbox")).LeftPosZ(8, 400).TopPosZ(65, 20))
+	ITEM(Upp::Option, showLeftToolbox, SetLabel(t_("Show left toolbox")).LeftPosZ(8, 400).TopPosZ(90, 20))
+	ITEM(Upp::Option, showFadeOut, SetLabel(t_("Show fade-out animation for non-winning cards")).LeftPosZ(8, 400).TopPosZ(115, 20))
+	ITEM(Upp::Option, showFlip, SetLabel(t_("Show flip-card animation")).LeftPosZ(8, 400).TopPosZ(140, 20))
+	ITEM(Upp::Option, reverseFKeys, SetLabel(t_("Reverse order of F-Keys (F1 - F4)")).LeftPosZ(8, 400).TopPosZ(165, 20))
+	ITEM(Upp::Option, showBlindButtons, SetLabel(t_("Show buttons for small blind and big blind")).HSizePosZ(196, 32).TopPosZ(192, 20))
+	ITEM(Upp::Option, cardsChanceMonitor, SetLabel(t_("Show cards chance monitor")).LeftPosZ(8, 180).TopPosZ(190, 20))
+	ITEM(Upp::Option, antiPeekMode, SetLabel(t_("Show own cards only on mouse click")).LeftPosZ(8, 400).TopPosZ(215, 20))
+	ITEM(Upp::Option, disableSplash, SetLabel(t_("Disable splashscreen on startup")).LeftPosZ(8, 400).TopPosZ(240, 20))
+	ITEM(Upp::Option, dontTranslate, SetLabel(t_("Don't translate poker strings")).LeftPosZ(8, 400).TopPosZ(265, 20))
+	ITEM(Upp::Option, showPotPercent, SetLabel(t_("Show 33%/50%/100% pot bet sizing buttons")).LeftPosZ(8, 400).TopPosZ(290, 20))
+END_LAYOUT
+
+LAYOUT(SettingsStyleLayout, 460, 410)
+	ITEM(Upp::Label, lblTitle, SetLabel(t_("Style")).LeftPosZ(8, 200).TopPosZ(8, 20))
+	ITEM(Upp::Label, sepS, LeftPosZ(8, 444).TopPosZ(28, 4))
+	ITEM(Upp::TabCtrl, tab, LeftPosZ(8, 444).TopPosZ(40, 362))
+END_LAYOUT
+
+LAYOUT(SettingsStyleTableLayout, 440, 330)
+	ITEM(Upp::ArrayCtrl, tableStyles, LeftPosZ(8, 340).TopPosZ(8, 150))
+	ITEM(Upp::Button, addStyle, SetLabel(t_("Add ...")).LeftPosZ(356, 76).TopPosZ(8, 30))
+	ITEM(Upp::Button, removeStyle, SetLabel(t_("Remove")).LeftPosZ(356, 76).TopPosZ(44, 30))
+	ITEM(Upp::LabelBox, previewBox, SetLabel(t_("Preview - Information:")).LeftPosZ(8, 424).TopPosZ(166, 156))
+	ITEM(Upp::ImageCtrl, preview, LeftPosZ(16, 160).TopPosZ(186, 120))
+	ITEM(Upp::Label, lblCardTheme, SetLabel(t_("Card Theme:")).LeftPosZ(184, 80).TopPosZ(186, 20))
+	ITEM(Upp::DropList, cardTheme, LeftPosZ(272, 150).TopPosZ(186, 20))
+END_LAYOUT
+
+LAYOUT(SettingsSoundLayout, 460, 410)
+	ITEM(Upp::Label, lblTitle, SetLabel(t_("Sound")).LeftPosZ(8, 200).TopPosZ(8, 20))
+	ITEM(Upp::Label, sepSn, LeftPosZ(8, 444).TopPosZ(28, 4))
+	ITEM(Upp::Option, playSounds, SetLabel(t_("Play sound effects")).LeftPosZ(8, 200).TopPosZ(40, 20))
+	ITEM(Upp::Label, lblVol, SetLabel(t_("Sound Volume:")).LeftPosZ(20, 100).TopPosZ(65, 20))
+	ITEM(Upp::SliderCtrl, volume, LeftPosZ(120, 200).TopPosZ(65, 20))
+	ITEM(Upp::LabelBox, catBox, SetLabel(t_("Sound Categories")).LeftPosZ(8, 444).TopPosZ(100, 150))
+	ITEM(Upp::Option, gameActions, SetLabel(t_("Play game actions sounds")).LeftPosZ(20, 400).TopPosZ(120, 20))
+	ITEM(Upp::Option, lobbyChat, SetLabel(t_("Play lobby chat notifications")).LeftPosZ(20, 400).TopPosZ(145, 20))
+	ITEM(Upp::Option, netNotifications, SetLabel(t_("Play network/internet game notifications")).LeftPosZ(20, 400).TopPosZ(170, 20))
+	ITEM(Upp::Option, blindRaise, SetLabel(t_("Play blind raise notification")).LeftPosZ(20, 400).TopPosZ(195, 20))
+END_LAYOUT
+
+LAYOUT(SettingsLocalGameLayout, 460, 410)
+	ITEM(Upp::Label, lblTitle, SetLabel(t_("Local Game Settings")).LeftPosZ(8, 200).TopPosZ(8, 20))
+	ITEM(Upp::Label, sepL, LeftPosZ(8, 444).TopPosZ(28, 4))
+	ITEM(Upp::Label, lblPlayers, SetLabel(t_("Number of players:")).LeftPosZ(8, 120).TopPosZ(40, 20))
+	ITEM(Upp::EditIntSpin, numPlayers, LeftPosZ(140, 60).TopPosZ(40, 20))
+	ITEM(Upp::Label, lblCash, SetLabel(t_("Start Cash:")).LeftPosZ(8, 120).TopPosZ(65, 20))
+	ITEM(Upp::EditIntSpin, startCash, LeftPosZ(140, 100).TopPosZ(65, 20))
+	ITEM(Upp::Label, lblBlind, SetLabel(t_("First small blind:")).LeftPosZ(8, 120).TopPosZ(90, 20))
+	ITEM(Upp::EditIntSpin, firstBlind, LeftPosZ(140, 100).TopPosZ(90, 20))
+END_LAYOUT
+
+LAYOUT(SettingsNetworkGameLayout, 460, 410)
+	ITEM(Upp::Label, lblTitle, SetLabel(t_("Network Game Settings")).LeftPosZ(8, 200).TopPosZ(8, 20))
+	ITEM(Upp::Label, sepN, LeftPosZ(8, 444).TopPosZ(28, 4))
+	ITEM(Upp::Label, lblPort, SetLabel(t_("Server Port:")).LeftPosZ(8, 100).TopPosZ(40, 20))
+	ITEM(Upp::EditIntSpin, serverPort, LeftPosZ(116, 80).TopPosZ(40, 20))
+	ITEM(Upp::Option, useIpv6, SetLabel(t_("Use IPv6")).LeftPosZ(8, 100).TopPosZ(65, 20))
+	ITEM(Upp::Option, useSctp, SetLabel(t_("Use SCTP")).LeftPosZ(8, 100).TopPosZ(90, 20))
+END_LAYOUT
+
+LAYOUT(SettingsInternetGameLayout, 460, 410)
+	ITEM(Upp::Label, lblTitle, SetLabel(t_("Internet Game Settings")).LeftPosZ(8, 200).TopPosZ(8, 20))
+	ITEM(Upp::Label, sepIn, LeftPosZ(8, 444).TopPosZ(28, 4))
+	ITEM(Upp::TabCtrl, tab, LeftPosZ(8, 444).TopPosZ(40, 362))
+END_LAYOUT
+
+LAYOUT(SettingsInternetServerLayout, 440, 330)
+	ITEM(Upp::LabelBox, autoBox, SetLabel(t_("Automatic Server Configuration URL")).LeftPosZ(8, 424).TopPosZ(8, 60))
+	ITEM(Upp::Label, lblSAddress, SetLabel(t_("Serverlist Address:")).LeftPosZ(20, 120).TopPosZ(28, 20))
+	ITEM(Upp::EditString, serverList, LeftPosZ(144, 260).TopPosZ(28, 20))
+END_LAYOUT
+
+LAYOUT(SettingsNicksLayout, 460, 410)
+	ITEM(Upp::Label, lblTitle, SetLabel(t_("Player Nicks/Avatars")).LeftPosZ(8, 200).TopPosZ(8, 20))
+	ITEM(Upp::Label, sepNk, LeftPosZ(8, 444).TopPosZ(28, 4))
+	ITEM(Upp::Label, lblNick, SetLabel(t_("Human Player:")).LeftPosZ(8, 100).TopPosZ(40, 20))
+	ITEM(Upp::EditString, humanNick, LeftPosZ(116, 150).TopPosZ(40, 20))
+	ITEM(Upp::Button, humanAvatar, LeftPosZ(8, 60).TopPosZ(70, 60))
+END_LAYOUT
+
+LAYOUT(SettingsLogLayout, 460, 410)
+	ITEM(Upp::Label, lblTitle, SetLabel(t_("Log Messages")).LeftPosZ(8, 200).TopPosZ(8, 20))
+	ITEM(Upp::Label, sepLog, LeftPosZ(8, 444).TopPosZ(28, 4))
+	ITEM(Upp::Option, enableLogging, SetLabel(t_("Enable/Disable Logging")).LeftPosZ(8, 200).TopPosZ(40, 20))
+	ITEM(Upp::Label, lblDuration, SetLabel(t_("Store log files for:")).LeftPosZ(20, 120).TopPosZ(65, 20))
+	ITEM(Upp::EditIntSpin, logDuration, LeftPosZ(148, 80).TopPosZ(65, 20))
+END_LAYOUT
+
+LAYOUT(SettingsFactoryLayout, 460, 410)
+	ITEM(Upp::Label, lblTitle, SetLabel(t_("Factory Settings")).LeftPosZ(8, 200).TopPosZ(8, 20))
+	ITEM(Upp::Label, sepF, LeftPosZ(8, 444).TopPosZ(28, 4))
+	ITEM(Upp::Button, btnReset, SetLabel(t_("Reset all settings to default ...")).LeftPosZ(80, 300).TopPosZ(100, 60))
+END_LAYOUT
+
